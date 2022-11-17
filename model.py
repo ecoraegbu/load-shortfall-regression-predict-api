@@ -32,6 +32,7 @@ def _preprocess_data(data):
 
     NB: If you have utilised feature engineering/selection in order to create
     your final model you will need to define the code here.
+    
 
 
     Parameters
@@ -44,6 +45,7 @@ def _preprocess_data(data):
     Pandas DataFrame : <class 'pandas.core.frame.DataFrame'>
         The preprocessed data, ready to be used our model for prediction.
     """
+    
     # Convert the json string to a python dictionary object
     feature_vector_dict = json.loads(data)
     # Load the dictionary as a Pandas DataFrame.
@@ -58,7 +60,7 @@ def _preprocess_data(data):
     # ---------------------------------------------------------------
 
     # ----------- Replace this code with your own preprocessing steps --------
-    predict_vector = feature_vector_df[['Madrid_wind_speed','Bilbao_rain_1h','Valencia_wind_speed']]
+    predict_vector = feature_vector_df.drop(columns = ['load_shortfall_3h'])
     # ------------------------------------------------------------------------
 
     return predict_vector

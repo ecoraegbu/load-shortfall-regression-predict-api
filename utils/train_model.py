@@ -13,19 +13,31 @@
 import pandas as pd
 import pickle
 from sklearn.linear_model import LinearRegression
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sb
+import datetime as dt
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
+import pickle
+# suppress warnings from final output
+import warnings
 
 # Fetch training data and preprocess for modeling
-train = pd.read_csv('./data/df_train.csv')
+train = pd.read_csv('train_clean.csv')
 
 y_train = train[['load_shortfall_3h']]
-X_train = train[['Madrid_wind_speed','Bilbao_rain_1h','Valencia_wind_speed']]
+X_train = train.drop(columns = ['load_shortfall_3h'])
 
 # Fit model
-lm_regression = LinearRegression(normalize=True)
+dtr = DecisionTreeRegressor(random_state=42)
 print ("Training Model...")
-lm_regression.fit(X_train, y_train)
+dtr.fit(X_train, y_train)
 
 # Pickle model for use within our API
-save_path = '../assets/trained-models/load_shortfall_simple_lm_regression.pkl'
+save_path = '../assets/trained-models/load_shortfall_simple_dt_regression.pkl'
 print (f"Training completed. Saving model to: {save_path}")
-pickle.dump(lm_regression, open(save_path,'wb'))
+pickle.dump(dtr, open(save_path,'wb'))
