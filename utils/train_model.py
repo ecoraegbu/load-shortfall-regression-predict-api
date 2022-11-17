@@ -38,6 +38,6 @@ print ("Training Model...")
 dtr.fit(X_train, y_train)
 
 # Pickle model for use within our API
-save_path = './assets/trained-models/load_shortfall_simple_dt_regression.pkl'
+save_path = './load-shortfall-regression-predict-api/assets/trained-models/load_shortfall_dt_regression.pkl'
 print (f"Training completed. Saving model to: {save_path}")
 pickle.dump(dtr, open(save_path,'wb'))
