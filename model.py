@@ -67,6 +67,7 @@ def _preprocess_data(data):
 
 def load_model(path_to_model:str):
     """Adapter function to load our pretrained model into memory.
+    
 
     Parameters
     ----------
@@ -81,6 +82,7 @@ def load_model(path_to_model:str):
         The pretrained model loaded into memory.
 
     """
+    path_to_model= load_model('./load-shortfall-regression-predict-api/assets/trained-models/load_shortfall_simple_dt_regression.pkl')
     return pickle.load(open(path_to_model, 'rb'))
 
 
