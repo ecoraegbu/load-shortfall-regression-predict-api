@@ -82,8 +82,6 @@ def load_model(path_to_model:str):
         The pretrained model loaded into memory.
 
     """
-    path_to_model= load_model('./load-shortfall-regression-predict-api/assets/trained-models/load_shortfall_dt_regression.pkl')
-    return pickle.load(open(path_to_model, 'rb'))
 
 
 """ You may use this section (above the make_prediction function) of the python script to implement 
