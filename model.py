@@ -60,7 +60,7 @@ def _preprocess_data(data):
     # ---------------------------------------------------------------
 
     # ----------- Replace this code with your own preprocessing steps --------
-    predict_vector = feature_vector_df.drop(columns = ['load_shortfall_3h'])
+    predict_vector = feature_vector_df
     # ------------------------------------------------------------------------
 
     return predict_vector
