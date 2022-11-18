@@ -44,7 +44,7 @@ print ('-'*40)
 # Here the 'model_prediction()' function will be called when a POST request
 # is sent to our interface located at:
 # http:{Host-machine-ip-address}:5000/api_v0.1
-@app.route('/http://34.242.193.104:5000/api_v0.1', methods=['POST'])
+@app.route('/http://52.30.149.132:5000/api_v0.1', methods=['POST'])
 def model_prediction():
     # We retrieve the data payload of the POST request
     data = request.get_json(force=True)
